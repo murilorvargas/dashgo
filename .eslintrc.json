@@ -21,12 +21,14 @@
     "react",
     "react-hooks",
     "@typescript-eslint",
+    "eslint-plugin-import-helpers",
     "prettier"
   ],
   "globals": {
     "JSX": true
   },
   "rules": {
+    "import/no-unresolved": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [
@@ -55,6 +57,25 @@
       {
         "ts": "never",
         "tsx": "never"
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^@shared/",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
       }
     ],
     "prettier/prettier": "error"
