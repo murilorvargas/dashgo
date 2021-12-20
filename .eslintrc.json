@@ -42,7 +42,7 @@
     "react/function-component-definition": [
       2,
       {
-        "unnamedComponents": "function-expression"
+        "namedComponents": "arrow-function"
       }
     ],
     "react/jsx-props-no-spreading": "off",
