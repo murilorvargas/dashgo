@@ -1,7 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import faker from 'faker';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { createServer, Factory, Model, Response } from 'miragejs';
+import {
+  createServer,
+  Factory,
+  Model,
+  Response,
+  ActiveModelSerializer,
+} from 'miragejs';
 
 type User = {
   name: string;
@@ -11,6 +17,10 @@ type User = {
 
 const makeServer = () => {
   const server = createServer({
+    serializers: {
+      application: ActiveModelSerializer,
+    },
+
     models: {
       user: Model.extend<Partial<User>>({}),
     },
@@ -51,6 +61,7 @@ const makeServer = () => {
           pageEnd,
         );
 
+        console.log(users);
         return new Response(200, { 'x-total-count': String(total) }, { users });
       });
       this.post('/users');
