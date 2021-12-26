@@ -96,7 +96,7 @@ const UserList = () => {
                           </Text>
                         </Box>
                       </Td>
-                      {isWideVersion && <Td>{user.createdAt}</Td>}
+                      {isWideVersion && <Td>{user.created_at}</Td>}
                     </Tr>
                   ))}
                 </Tbody>
