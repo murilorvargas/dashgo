@@ -4,9 +4,15 @@ interface PaginationItemProps {
   number: number;
   // eslint-disable-next-line react/require-default-props
   isCurrent?: boolean;
+  // eslint-disable-next-line no-unused-vars
+  onPageChange: (page: number) => void;
 }
 
-const PaginationItem = ({ isCurrent = false, number }: PaginationItemProps) => {
+const PaginationItem = ({
+  onPageChange,
+  isCurrent = false,
+  number,
+}: PaginationItemProps) => {
   if (isCurrent) {
     return (
       <Button
@@ -29,6 +35,7 @@ const PaginationItem = ({ isCurrent = false, number }: PaginationItemProps) => {
       width="4"
       bg="gray.700"
       _hover={{ bg: 'gray.500' }}
+      onClick={() => onPageChange(number)}
     >
       {number}
     </Button>
